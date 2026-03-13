@@ -4,7 +4,7 @@
 pkgname=python3-dbus
 _pkgname=dbus-python
 pkgver=1.4.0
-pkgrel=0
+pkgrel=${pkgrel:-0}
 pkgdesc="Python3 bindings for DBUS"
 url="https://www.freedesktop.org/wiki/Software/DBusBindings"
 arch="all"
@@ -37,6 +37,7 @@ package() {
 	mv dbus_python.egg-info/ "$pkgdir"/usr/lib/python3.$pyminor/site-packages/dbus_python-$pkgver-python3.$pyminor.egg-info/
 }
 
+options="$options ${DISABLE_CHECK:+!check}"
 sha512sums="
 defd5fba8348635ce52654b7e93e6cacf52966f6facfb7bb04fc77f2f82129e0b7673d4f3d483ef3321985172987d8c3265b27b9200c68c39c729567ffa21456  dbus-python-1.4.0.tar.xz
 "
